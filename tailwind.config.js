@@ -4,8 +4,27 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ['Inter']
+      }
+    },
+    colors: {
+      'p-blue': '#7BD3EA',
+      'p-pink': '#e8acae',
+      'p-gray': '#F9F5F6',
+      'p-lpink': '#FFDDCC',
+      'p-mpink': '#FFCCCC',
+      'p-hpink': '#FEBBCC',
+      'p-dpink': '#E195AB',
+      'p-yellow': '#FFEECC',
+      'p-dwhite': '#f6f6f7',
+      'p-white': '#ffffff',
+      'd-gray': '#161618'
+    }
   },
-  plugins: [],
+  plugins: [
+    "prettier-plugin-tailwindcss",
+  ],
 }
 
