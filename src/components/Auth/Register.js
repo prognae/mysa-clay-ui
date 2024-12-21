@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import logo from '../images/mysa-logo.avif';
+import logo from '../../assets/images/mysa-logo.avif';
 import Alert from './Alert';
 
 const Register = () => {
@@ -43,14 +43,14 @@ const Register = () => {
     }
 
     return (
-        < div className="flex justify-center items-center font-inter p-1" >
-            <div className="login-form form-container rounded-xl shadow drop-shadow-lg p-12 bg-p-white maxw-[500px] maxh-[650px] test">
+        < div className="flex justify-center items-center font-inter sm:h-screen" >
+            <div className="login-form form-container sm:rounded-xl shadow drop-shadow-lg p-12 bg-p-white max-sm:w-full max-sm:h-full">
                 <form>
                     <img src={logo} alt="logo" width={70} className="mb-5" />
                     <h1 className="text-2xl font-inter font-extrabold text-d-gray">Sign Up</h1>
                     <h2 className="mb-10 font-inter text-[gray] font-semibold">Welcome to Mysa Clay!</h2>
                     <div className="flex flex-col gap-8">
-                        <div className="flex flex-row gap-4">
+                        <div className="flex flex-row gap-4 max-sm:flex-col">
                             <div className="flex flex-col">
                                 <label className="text-sm font-semibold text-d-gray">First Name</label>
                                 <input type="text" name="first_name" id="first_name" value={payload.first_name} onChange={(e) => setPayload({ ...payload, first_name: e.target.value })} required className="border border-[#a1a1a1] rounded h-9 p-3" placeholder="John" />
@@ -66,7 +66,7 @@ const Register = () => {
                             <input type="email" name="email" id="email" value={payload.email} onChange={(e) => setPayload({ ...payload, email: e.target.value })} required className="border border-[#a1a1a1] rounded h-9 p-3" placeholder="johndoe@example.com" />
                         </div>
 
-                        <div className="flex flex-row gap-4">
+                        <div className="flex flex-row gap-4 max-sm:flex-col">
                             <div className="flex flex-col">
                                 <div className="flex flex-col">
                                     <label className="text-sm font-semibold text-d-gray">Contact Number</label>
@@ -79,7 +79,7 @@ const Register = () => {
                             </div>
                         </div>
 
-                        <div className="flex flex-row gap-4">
+                        <div className="flex flex-row gap-4 max-sm:flex-col">
                             <div className="flex flex-col">
                                 <label className="text-sm font-semibold text-d-gray">Password</label>
                                 <input type="password" name="password" id="password" value={payload.password} onChange={(e) => setPayload({ ...payload, password: e.target.value })} required minLength={8} className="border border-[#a1a1a1] rounded h-9 p-3" />
@@ -93,11 +93,8 @@ const Register = () => {
                         {errorMessage.visible &&
                             <p className="font-light text-[red] text-sm">{errorMessage.message}</p>
                         }
+                        <button className="h-9 w-full rounded-md text-p-white bg-p-pink font-semibold shadow" onClick={handleRegister}>Register</button>
 
-                        <div className="flex justify-center">
-                            <button className="h-9 w-full rounded-md text-p-white bg-p-pink font-semibold shadow" onClick={handleRegister}>Register</button>
-                            {/* <button className="h-9 w-full rounded-md text-p-white bg-p-pink font-semibold shadow mt-5" onClick={(e) => toggleAlert({ visible: true })}>Register</button> */}
-                        </div>
                         <p className="text-sm text-p-dpink">Already have an account? <a href="/login" className="text-p-blue">Log in here!</a></p>
                     </div>
                 </form>

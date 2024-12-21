@@ -20,7 +20,8 @@ module.exports = {
       'p-yellow': '#FFEECC',
       'p-dwhite': '#f6f6f7',
       'p-white': '#ffffff',
-      'd-gray': '#161618'
+      'd-gray': '#161618',
+      'p-dgray': '#a3a3a3',
     }
   },
   plugins: [

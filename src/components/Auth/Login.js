@@ -1,19 +1,18 @@
 import { useState } from "react";
 import axios from "axios";
-import logo from '../images/mysa-logo.avif';
+import logo from '../../assets/images/mysa-logo.avif';
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const Login = () => {
+    const navigate = useNavigate();
+
     const formData = {
         credentials: '',
         password: ''
     }
 
-    const navigate = useNavigate();
-
     const [credentials, setCredentials] = useState(formData);
-    // const [alert, toggleAlert] = useState({ visible: false, status: '', message: '' });
     const [errorMessage, setErrorMessage] = useState({ visible: false, message: '' });
 
     const handleLogin = async (e) => {
@@ -39,8 +38,8 @@ const Login = () => {
     }
 
     return (
-        <div className="flex justify-center items-center font-inter p-1">
-            <div className="login-form form-container rounded-xl shadow drop-shadow-lg p-12 bg-p-white w-[500px] h-[650px] test">
+        <div className="flex justify-center items-center sm:h-screen font-inter">
+            <div className="login-form form-container sm:rounded-xl shadow drop-shadow-lg p-12 bg-p-white w-[500px] h-[650px] max-sm:w-full max-sm:h-full">
                 <form>
                     <img src={logo} alt="logo" width={70} className="mb-5" />
                     <h1 className="text-2xl font-inter font-extrabold text-d-gray">Log in</h1>
