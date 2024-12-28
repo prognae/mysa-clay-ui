@@ -22,6 +22,8 @@ module.exports = {
       'p-white': '#ffffff',
       'd-gray': '#161618',
       'p-dgray': '#a3a3a3',
+      // 'p-brown': '#361b1b',
+      'p-brown': '#4d2920',
     }
   },
   plugins: [

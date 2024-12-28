@@ -9,8 +9,8 @@ const Navbar = (props) => {
     };
 
     return (
-        <div className="w-full sticky bg-p-pink flex justify-center font-inter text-sm font-bold text-d-gray">
-            <div className="h-[75px] flex justify-between items-center w-[1400px] relative">
+        <div className="w-full sticky bg-p-pink flex justify-center font-inter text-sm font-bold text-p-brown top-0 z-50">
+            <div className="h-[75px] flex justify-between items-center max-sm:w-full sm:w-[80vw] relative">
                 <div className="flex-1 flex justify-start">
                     <ul className="flex flex-row gap-3 max-sm:hidden">
                         <li><a href='/home'>Home</a></li>
@@ -31,7 +31,7 @@ const Navbar = (props) => {
 
                 <div className="flex-1 flex justify-end">
                     <ul className="flex flex-row gap-3 relative">
-                        <div className="flex flex-row gap-3">
+                        <div className="flex flex-row gap-3 max-sm:mr-5">
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
                                     <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clipRule="evenodd" />
