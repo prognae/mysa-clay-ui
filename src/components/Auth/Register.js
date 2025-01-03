@@ -22,7 +22,7 @@ const Register = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(process.env.REACT_APP_API_URL + '/auth/register', payload);
+            const response = await axios.post(process.env.REACT_APP_API_URL + '/api/auth/register', payload);
 
             if (response.status === 200) {
                 payload.first_name = '';

@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import fullLogo from '../../assets/images/mysa-logo-full.avif';
 
 const Navbar = (props) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
 
+    const handleScroll = () => {
+        setIsScrolled(window.scrollY > 0);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <div className="w-full sticky bg-p-pink flex justify-center font-inter text-sm font-bold text-p-brown top-0 z-50">
+        <div className={`w-full fixed bg-p-pink flex justify-center font-inter text-sm font-bold text-p-brown top-0 z-50 transition-colors duration-400 ${isScrolled ? 'bg-opacity-100' : 'bg-opacity-0'}`} >
             <div className="h-[75px] flex justify-between items-center max-sm:w-full sm:w-[80vw] relative">
                 <div className="flex-1 flex justify-start">
                     <ul className="flex flex-row gap-3 max-sm:hidden">
@@ -66,7 +76,7 @@ const Navbar = (props) => {
                     </ul>
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }

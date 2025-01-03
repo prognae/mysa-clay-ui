@@ -11,7 +11,7 @@ const Logout = () => {
     useEffect(() => {
         try {
             const handleLogout = async () => {
-                const response = await axios.get(process.env.REACT_APP_API_URL + '/auth/logout', {
+                const response = await axios.get(process.env.REACT_APP_API_URL + '/api/auth/logout', {
                     headers: {
                         'Accept': 'application/json',
                         'Authorization': `${tokenType} ${accessToken}`

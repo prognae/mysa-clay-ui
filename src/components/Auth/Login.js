@@ -19,7 +19,7 @@ const Login = () => {
         e.preventDefault()
 
         try {
-            const response = await axios.post(process.env.REACT_APP_API_URL + '/auth/login', credentials);
+            const response = await axios.post(process.env.REACT_APP_API_URL + '/api/auth/login', credentials);
 
             if (response.status === 200) {
                 Cookies.set('access_token', response.data.data.access_token);
