@@ -31,6 +31,7 @@ function App() {
         <Routes>
 
           <Route element={<UnprotectedRotes />} >
+          <Route element={<Login />} path="/" />
             <Route element={<Login />} path="/login" />
             <Route element={<Register />} path="/register" />
           </Route>
