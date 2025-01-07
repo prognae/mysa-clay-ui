@@ -34,7 +34,7 @@ const Shop = () => {
         <div>
             <Navbar username={profile.username} />
 
-            {(banners && banners.length) > 0 && (
+            {(banners && banners.length > 0) && (
                 <>
                     <div className="relative h-[100vh] w-full overflow-hidden z-10">
                         <div
