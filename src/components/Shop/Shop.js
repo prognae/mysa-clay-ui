@@ -8,13 +8,14 @@ const Shop = () => {
 
     const [currentImageIndex, setImageIndex] = useState(0);
     const [banners, setBanners] = useState([]);
+    const bannerLength = banners != null ? banners.length : 0;
 
     const nextImage = () => {
-        setImageIndex((prevIndex) => (prevIndex + 1) % banners.length);
+        setImageIndex((prevIndex) => (prevIndex + 1) % bannerLength);
     };
 
     const prevImage = () => {
-        setImageIndex((prevIndex) => (prevIndex - 1 + banners.length) % banners.length);
+        setImageIndex((prevIndex) => (prevIndex - 1 + bannerLength) % bannerLength);
     };
 
     useEffect(() => {
@@ -34,7 +35,7 @@ const Shop = () => {
         <div>
             <Navbar username={profile.username} />
 
-            {(banners && banners.length > 0) && (
+            {bannerLength > 0 && (
                 <>
                     <div className="relative h-[100vh] w-full overflow-hidden z-10">
                         <div
