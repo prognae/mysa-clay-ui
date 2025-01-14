@@ -4,6 +4,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Ragazzi-Extrabold';
+  src: url('./assets/fonts/Fontspring-DEMO-ragazzi-extrabold.otf') format('opentype');
+  font-weight: normal;
+  /* Optional: Set the weight */
+  font-style: normal;
+  /* Optional: Set the style */
+}
+
+@font-face {
+  font-family: 'Ragazzi';
+  src: url('./assets/fonts/Fontspring-DEMO-ragazzi-medium.otf') format('opentype');
+  font-weight: normal;
+  /* Optional: Set the weight */
+  font-style: normal;
+  /* Optional: Set the style */
+}
 
 body {
   margin: 0;

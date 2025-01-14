@@ -6,7 +6,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter']
+        inter: ['Inter'],
+        ragazzibold: ['Ragazzi-Extrabold'],
+        ragazzi: ['Ragazzi'],
       }
     },
     colors: {
@@ -17,6 +19,7 @@ module.exports = {
       'p-mpink': '#FFCCCC',
       'p-hpink': '#FEBBCC',
       'p-dpink': '#E195AB',
+      'p-ddpink': '#c28294',
       'p-yellow': '#FFEECC',
       'p-dwhite': '#f6f6f7',
       'p-white': '#ffffff',
