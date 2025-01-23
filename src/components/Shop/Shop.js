@@ -1,16 +1,22 @@
 import { useContext, useEffect, useState } from 'react';
 import { ProfileContext } from '../../App';
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 import { getBanners } from './Banners';
-import sampleImage from '../../assets/images/sample-mug.webp';
-import sampleImage2 from '../../assets/images/sample-mug2.webp';
+import { getCollections } from './Collections';
+import customBanner from '../../assets/images/ceramic_mug.webp';
 
 const Shop = () => {
     const profile = useContext(ProfileContext);
 
     const [currentImageIndex, setImageIndex] = useState(0);
     const [banners, setBanners] = useState([]);
+    const [collections, setCollections] = useState([]);
+
     const bannerLength = banners != null ? banners.length : 0;
+    const collectionLength = collections.data != null ? collections.data.length : 0;
+
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     const nextImage = () => {
         setImageIndex((prevIndex) => (prevIndex + 1) % bannerLength);
@@ -31,6 +37,14 @@ const Shop = () => {
         }
 
         bannerData()
+    }, []);
+
+    useEffect(() => {
+        const collectionData = async () => {
+            setCollections(await getCollections());
+        }
+
+        collectionData()
     }, []);
 
     return (
@@ -88,69 +102,81 @@ const Shop = () => {
                 </>
             )}
 
-            <div className="h-[1000px]">
-                <div className="collection-title text-center font-ragazzibold font-extrabold text-4xl mt-20 mb-10 text-p-ddpink">
-                    <h2>Featured Collection</h2>
-                </div>
-
-                <div className="collection-container w-100 sm:w-[80vw] justify-self-center flex justify-center">
-                    <div className="grid grid-cols-5 gap-10">
-                        <div className="collection-item h-[300px] w-[250px] border-2 border-p-dpink rounded-lg">
-                            <div className="image-container rounded-md h-[100%]">
-                                <div className="item-image">
-                                    <img src={sampleImage} alt="" className="h-[calc(100%-55px)]" />
-                                </div>
-                            </div>
-
-                            <div className="item-text text-center font-ragazzi text-lg font-semibold flex flex-col">
-                                <p>Under the Rain Mug</p>
-                                <p className="font-inter"><span>₱ </span>3,500</p>
-                            </div>
+            <div className="featured-collection">
+                {collectionLength > 1 && (
+                    <>
+                        <div className="collection-title text-center font-ragazzibold font-extrabold text-4xl mt-20 mb-5 text-p-ddpink">
+                            <h2>Featured Collection</h2>
                         </div>
 
-                        <div className="collection-item h-[300px] w-[250px] border-2 border-p-dpink rounded-lg">
-                            <div className="image-container h-[calc(100%-40px)] overflow-hidden rounded-md">
-                                <div className="item-image">
-                                    <img src={sampleImage2} alt="" />
-                                </div>
+                        <div
+                            className="flex justify-center items-center featured-container border-2 border-p-dpink rounded-md sm:w-[80vw] sm:h-[600px] sm:minh-10 justify-self-center bg-cover bg-center"
+                            style={{
+                                backgroundImage: `url(${apiUrl + '/storage/' + collections.featured.thumbnail_banner_url})`,
+                            }}
+                        >
+
+                            <div className="border-2 border-p-dpink rounded-md min-w-[250px] min-h-[150px] flex justify-center items-center flex-col bg-p-bg">
+                                <p className="font-ragazzibold text-p-ddpink text-3xl font-semibold">{collections.featured.name}</p>
+                                <button className="cursor-pointer transition-all bg-p-ddpink text-white px-4 py-2 rounded-lg
+                                    border-p-brown
+                                    border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                                    active:border-b-[2px] active:brightness-90 active:translate-y-[2px] font-inter text-2xl font-semibold text-p-white">
+                                    Shop Now
+                                </button>
                             </div>
                         </div>
-
-                        <div className="collection-item h-[300px] w-[250px] border-2 border-p-dpink rounded-lg">
-
-                        </div>
-
-                        <div className="collection-item h-[300px] w-[250px] border-2 border-p-dpink rounded-lg">
-
-                        </div>
-
-                        <div className="collection-item h-[300px] w-[250px] border-2 border-p-dpink rounded-lg">
-
-                        </div>
-
-                        <div className="collection-item h-[300px] w-[250px] border-2 border-p-dpink rounded-lg">
-
-                        </div>
-
-                        <div className="collection-item h-[300px] w-[250px] border-2 border-p-dpink rounded-lg">
-
-                        </div>
-
-                        <div className="collection-item h-[300px] w-[250px] border-2 border-p-dpink rounded-lg">
-
-                        </div>
-
-                        <div className="collection-item h-[300px] w-[250px] border-2 border-p-dpink rounded-lg">
-
-                        </div>
-
-                        <div className="collection-item h-[300px] w-[250px] border-2 border-p-dpink rounded-lg">
-
-                        </div>
-                    </div>
-                </div>
-
+                    </>
+                )}
             </div>
+
+            <div className="other-collection">
+                {collectionLength > 1 && (
+                    <>
+                        <div className="collection-title text-center font-ragazzibold font-extrabold text-4xl mt-20 mb-5 text-p-ddpink">
+                            <h2>Other Collections</h2>
+                        </div>
+
+                        <div className="collection-container w-100 sm:w-[80vw] justify-self-center flex justify-center">
+                            <div className="grid grid-cols-5 gap-10 w-100">
+                                {collections.data.map((collection, index) => (
+                                    <a className="collection-item h-[300px] w-[250px] border-2 border-p-dpink rounded-lg mb-5 shadow-md hover:shadow-inner" key={index} href="/">
+                                        <div className="image-container rounded-md h-[100%] overflow-hidden mb-2 flex justify-center items-center">
+                                            <div className="item-image">
+                                                <img src={apiUrl + '/storage/' + collection.thumbnail_url} alt="" className="h-full w-full object-cover" />
+                                            </div>
+                                        </div>
+
+                                        <div className="item-text text-center font-inter font-normal text-md flex flex-col text-p-ddpink">
+                                            <p className="underline hover:text-p-dpink" href="/">{collection.name}</p>
+                                        </div>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </>
+                )}
+            </div>
+
+            <div className="h-[1000px] pre-orders mt-[100px]">
+                <div className="collection-title text-center font-ragazzibold font-extrabold text-4xl mt-20 mb-5 text-p-ddpink">
+                    <h2>Custom Orders</h2>
+                </div>
+
+                <div
+                    className="flex justify-center items-center featured-container border-2 border-p-dpink rounded-md sm:min-w-[30vw] sm:min-h-[600px] justify-self-center bg-cover bg-center"
+                    style={{
+                        backgroundImage: `url(${customBanner})`,
+                    }}
+                >
+                </div>
+
+                <div className="w-[30vw] justify-self-center mt-1">
+                    <a href='/' className="font-inter text-lg text-p-ddpink underline hover:text-p-dpink">Slot for custom and pre–orders</a>
+                </div>
+            </div>
+
+            <Footer />
         </div>
     );
 };

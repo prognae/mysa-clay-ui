@@ -9,13 +9,14 @@ module.exports = {
         inter: ['Inter'],
         ragazzibold: ['Ragazzi-Extrabold'],
         ragazzi: ['Ragazzi'],
-      }
+      },
     },
     colors: {
       'p-blue': '#7BD3EA',
       'p-pink': '#e8acae',
       'p-gray': '#F9F5F6',
-      'p-lpink': '#FFDDCC',
+      'p-lpink': '#ebb9bb',
+      'p-lpink2': '#e3b3b5',
       'p-mpink': '#FFCCCC',
       'p-hpink': '#FEBBCC',
       'p-dpink': '#E195AB',
@@ -27,6 +28,7 @@ module.exports = {
       'p-dgray': '#a3a3a3',
       // 'p-brown': '#361b1b',
       'p-brown': '#4d2920',
+      'p-bg': "#F8E8EE",
     }
   },
   plugins: [
