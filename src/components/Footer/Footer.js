@@ -51,10 +51,10 @@ const Footer = () => {
                     <div className="font-inter font-normal text-sm text-p-brown">
                         <div className="flex justify-between items-center">
                             <ul className="flex flex-row gap-5 underline">
-                                <li><a href="/">About</a></li>
-                                <li><a href="/">Contact</a></li>
-                                <li><a href="/">Refund Policy</a></li>
-                                <li><a href="/">Terms and Conditions</a></li>
+                                <li><a className="hover:text-d-gray" href="/">About</a></li>
+                                <li><a className="hover:text-d-gray" href="/">Contact</a></li>
+                                <li><a className="hover:text-d-gray" href="/">Refund Policy</a></li>
+                                <li><a className="hover:text-d-gray" href="/">Terms and Conditions</a></li>
                             </ul>
 
                             <div className="copyright flex align-center">
