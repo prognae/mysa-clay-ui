@@ -39,7 +39,7 @@ const Login = () => {
 
     return (
         <div className="flex justify-center items-center sm:h-screen font-inter">
-            <div className="login-form form-container sm:rounded-xl shadow drop-shadow-lg p-12 bg-p-white w-[500px] h-[650px] max-sm:w-full max-sm:h-full">
+            <div className="login-form form-container sm:rounded-xl shadow drop-shadow-lg p-12 bg-p-white w-[500px] h-[650px] max-sm:w-full max-sm:h-[100vh]">
                 <form>
                     <img src={logo} alt="logo" width={70} className="mb-5" />
                     <h1 className="text-2xl font-inter font-extrabold text-d-gray">Log in</h1>

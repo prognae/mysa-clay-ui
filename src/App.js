@@ -31,16 +31,16 @@ function App() {
         <Routes>
 
           <Route element={<UnprotectedRotes />} >
-          <Route element={<Login />} path="/" />
+            <Route element={<Shop />} path="/" />
             <Route element={<Login />} path="/login" />
             <Route element={<Register />} path="/register" />
           </Route>
 
-          <Route element={<ProtectedRotes />} >
-            <Route element={<Shop />} path="/shop" />
+          <Route element={<ProtectedRotes />} >            
             <Route element={<Logout />} path="/logout" />
           </Route>
-
+          
+          <Route element={<Shop />} path="/shop" />
           <Route element={<Error404 />} path="*" />
         </Routes>
       </BrowserRouter>
