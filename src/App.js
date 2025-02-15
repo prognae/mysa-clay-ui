@@ -2,6 +2,7 @@ import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Shop from './components/Shop/Shop';
+import Products from './components/Products/Products';
 import Error404 from './components/Error404';
 import ProtectedRotes from './utils/ProtectedRoutes';
 import UnprotectedRotes from './utils/UnprotectedRoutes';
@@ -41,6 +42,7 @@ function App() {
           </Route>
           
           <Route element={<Shop />} path="/shop" />
+          <Route element={<Products />} path="/products" />
           <Route element={<Error404 />} path="*" />
         </Routes>
       </BrowserRouter>

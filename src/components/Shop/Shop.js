@@ -159,7 +159,7 @@ const Shop = () => {
                 )}
             </div>
 
-            <div className="h-[1000px] pre-orders sm:mt-[100px]">
+            <div className="pre-orders sm:mt-[100px]">
                 <div className="collection-title text-center font-ragazzibold font-extrabold sm:text-4xl max-sm:text-2xl mt-20 mb-5 text-p-ddpink">
                     <h2>Custom Orders</h2>
                 </div>
